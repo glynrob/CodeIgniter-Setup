@@ -18,7 +18,15 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
+ if ($_SERVER['HTTP_HOST'] == 'githubci.sdev') {
 	define('ENVIRONMENT', 'development');
+ } elseif ($_SERVER['HTTP_HOST'] == 'testing.githubci.co'){
+	define('ENVIRONMENT', 'testing');
+ } elseif ($_SERVER['HTTP_HOST'] == 'staging.githubci.co'){
+	define('ENVIRONMENT', 'staging');
+ } else {
+	define('ENVIRONMENT', 'production');
+ }
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
@@ -56,7 +64,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-	$system_path = 'system';
+	$system_path = '../core/system';
 
 /*
  *---------------------------------------------------------------
@@ -72,7 +80,7 @@ if (defined('ENVIRONMENT'))
  * NO TRAILING SLASH!
  *
  */
-	$application_folder = 'application';
+	$application_folder = '../core/application';
 
 /*
  * --------------------------------------------------------------------
