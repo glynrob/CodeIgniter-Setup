@@ -4,7 +4,14 @@ class Cms extends CMS_Controller {
 
 	public function index()
 	{
-		$this->load->view('cms_page');
+		$this->load->model('Example','',TRUE);
+		$allRecords = $this->Example->getAll();
+		$idOne = $this->Example->getById(1);
+		$data = array(
+       		'allRecords' => $allRecords,
+        	'idOne' => $idOne
+        );
+		$this->load->view('cms_page',$data);
 	}
 }
 

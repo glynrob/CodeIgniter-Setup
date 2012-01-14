@@ -70,7 +70,30 @@
 	<div id="body">
 		<p><a href="/">Click here</a> to back to the Homepage</p>
 		<p><a href="/logout">Click here</a> to logout</p>
-		<p>This is the secret content that only logged in users can see</p>
+		<p>All users in the example table using <strong>$this->Example->getAll();</strong></p>
+        <?php
+		if ($allRecords->num_rows() > 0)
+		{?>
+        	<table cellpadding="4">
+            	<tr>
+              		<td>Name</td>
+              		<td>Email</td>
+              		<td>Phone</td>
+                </tr>
+			   <?php 
+               $total = 0;
+               foreach ($allRecords->result() as $record)
+               {?>
+                    <tr>
+                        <td><?php echo ($record->name);?></td>
+                        <td><?php echo ($record->email);?></td>
+                        <td><?php echo ($record->phone);?></td>
+                    </tr>
+                <?php }?>
+         	</table>
+        <?php }?>
+		<p>ID 1 in the example table using <strong>$this->Example->getById(1);</strong></p>
+        <p><?php echo ($idOne->name);?> <?php echo ($idOne->email);?> <?php echo ($idOne->phone);?></p>
 	</div>
 </div>
 </body>
