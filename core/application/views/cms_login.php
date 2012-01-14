@@ -66,17 +66,18 @@
 </head>
 <body>
 <div id="container">
-	<h1>This is the Homepage</h1>
+	<h1>This is the CMS Login page</h1>
 	<div id="body">
-        <?php if ($this->session->userdata('admin_in') == FALSE){?>
-			<p><strong>You are not logged in</strong><br />
-            	You will not be able to get to /cms</p>
-        <?php } else {?>
-			<p><strong>You are logged in</strong><br />
-            	You will be able to get to /cms</p>
-			<p><a href="/logout">Click here</a> to logout</p>
-        <?php }?>
-		<p><a href="/cms">Click here</a> to view CMS</p>
+		<p><a href="/">Click here</a> to back to the Homepage</p>
+		<p>Login Form<br />
+			(Any values in these fields will log you in)</p>
+        <?php echo form_open('cms_login'); ?>
+        	<p>Email <?php echo form_error('email'); ?><br />
+            	<input name="email" type="text" value="<?php echo set_value('email'); ?>"/></p>
+			<p>Password <?php echo form_error('password'); ?><br />
+            	<input name="password" type="password" value="<?php echo set_value('password'); ?>" /></p>
+            <p><input name="submit" type="submit" value="Login" /></p>		    
+        </form>
 	</div>
 </div>
 </body>

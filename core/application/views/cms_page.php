@@ -66,17 +66,11 @@
 </head>
 <body>
 <div id="container">
-	<h1>This is the Homepage</h1>
+	<h1>This is the CMS</h1>
 	<div id="body">
-        <?php if ($this->session->userdata('admin_in') == FALSE){?>
-			<p><strong>You are not logged in</strong><br />
-            	You will not be able to get to /cms</p>
-        <?php } else {?>
-			<p><strong>You are logged in</strong><br />
-            	You will be able to get to /cms</p>
-			<p><a href="/logout">Click here</a> to logout</p>
-        <?php }?>
-		<p><a href="/cms">Click here</a> to view CMS</p>
+		<p><a href="/">Click here</a> to back to the Homepage</p>
+		<p><a href="/logout">Click here</a> to logout</p>
+		<p>This is the secret content that only logged in users can see</p>
 	</div>
 </div>
 </body>
